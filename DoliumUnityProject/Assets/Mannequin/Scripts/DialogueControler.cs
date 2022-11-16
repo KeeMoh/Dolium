@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueControler : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private GameObject mannequinDialoguesUI;
+    [SerializeField] private string mannequinName;
+    [SerializeField] private string mannequinText;
+    
 
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
+
+
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("A player enter!");
+            mannequinDialoguesUI.SetActive(true);
+            mannequinDialoguesUI.transform.Find("TextZone").GetChild(0).GetComponent<Text>().text = mannequinText;
+            mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).GetComponent<Text>().text = mannequinName;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            mannequinDialoguesUI.SetActive(false);
         }
     }
 }
