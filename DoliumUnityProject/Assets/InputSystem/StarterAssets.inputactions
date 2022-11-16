@@ -59,6 +59,15 @@
                     "interactions": "",
                     "initialStateCheck": false
                 }
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "2f468a9b-8bc3-4e8f-acc4-77d66e6a2699"
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
             ],
             "bindings": [
                 {
@@ -256,6 +265,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Discard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+                {
+                    "name": "",
+                    "id": "c8716e99-497d-4032-8eff-e093cf4c8d3e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
