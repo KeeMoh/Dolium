@@ -9,10 +9,14 @@ public class DialogueControler : MonoBehaviour
 
     [SerializeField] private GameObject mannequinDialoguesUI;
     [SerializeField] private string mannequinName;
-    [SerializeField] private string mannequinText;
+    [SerializeField] private string[] mannequinDialogues;
+
+    private int mannequinDialogueIndex;
+    private GameObject NameZoneText;
+    private GameObject DialogueZoneText;
+
+    private StarterAssets.StarterAssetsInputs _input;
     
-
-
     
 
     private void OnTriggerEnter(Collider other)
@@ -21,10 +25,9 @@ public class DialogueControler : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            mannequinDialoguesUI.SetActive(true);
-            mannequinDialoguesUI.transform.Find("TextZone").GetChild(0).GetComponent<Text>().text = mannequinText;
-            mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).GetComponent<Text>().text = mannequinName;
-
+            NameZoneText = mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).gameObject;
+            DialogueZoneText = mannequinDialoguesUI.transform.Find("DialoguesZone").GetChild(0).gameObject;
+            _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
         }
     }
 
@@ -33,6 +36,38 @@ public class DialogueControler : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             mannequinDialoguesUI.SetActive(false);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (_input.interact)
+            {
+                if (!mannequinDialoguesUI.activeInHierarchy)
+                {
+                    mannequinDialoguesUI.SetActive(true);
+                    NameZoneText.GetComponent<Text>().text = mannequinName;
+                    DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
+                }
+                else
+                {
+                    if(mannequinDialogueIndex < mannequinDialogues.Length)
+                    {
+                        mannequinDialogueIndex++;
+                    }
+                    else
+                    {
+                        mannequinDialogueIndex = 0;
+                    }
+                    
+                    DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
+                }
+                Debug.Log(_input.interact);
+                _input.interact = false;
+            }
+
         }
     }
 }
