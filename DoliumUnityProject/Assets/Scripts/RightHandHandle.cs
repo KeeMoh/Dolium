@@ -55,7 +55,7 @@ public class RightHandHandle : MonoBehaviour
         islock = false;
     }
 
-    private bool isCarried()
+    public bool isCarried()
     {
         return (transform.childCount > 0);
     }
