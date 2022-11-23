@@ -10,6 +10,7 @@ public class DialogueControler : MonoBehaviour
     [SerializeField] private GameObject mannequinDialoguesUI;
     [SerializeField] private string mannequinName;
     [SerializeField] private string[] mannequinDialogues;
+    [SerializeField] private string interactionName;
 
     private int mannequinDialogueIndex;
     private GameObject NameZoneText;
@@ -28,7 +29,7 @@ public class DialogueControler : MonoBehaviour
             NameZoneText = mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).gameObject;
             DialogueZoneText = mannequinDialoguesUI.transform.Find("DialoguesZone").GetChild(0).gameObject;
             _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
-            other.GetComponent<InteractionController>().CreateInteraction("New Interaction!");
+            other.GetComponent<InteractionController>().CreateInteraction(interactionName);
         }
     }
 
@@ -69,7 +70,7 @@ public class DialogueControler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<InteractionController>().DeleteInteraction("New Interaction!");
+            other.gameObject.GetComponent<InteractionController>().DeleteInteraction(interactionName);
             NameZoneText.GetComponent<Text>().text = "";
             DialogueZoneText.GetComponent<Text>().text = "";
             mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");

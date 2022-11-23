@@ -322,6 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3087435680592914725, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
+      propertyPath: interactionName
+      value: Mannequin 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087435680592914725, guid: 357f09e333f50a9428d228659e74995b,
+        type: 3}
       propertyPath: mannequinDialoguesUI
       value: 
       objectReference: {fileID: 836977072}
@@ -343,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3800228
+      value: 2.556
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -353,12 +358,12 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.426
+      value: 1.316
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.44975114
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -368,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.89315397
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -383,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -126.545
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -1859,6 +1864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3087435680592914725, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
+      propertyPath: interactionName
+      value: Mannequin 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087435680592914725, guid: 357f09e333f50a9428d228659e74995b,
+        type: 3}
       propertyPath: mannequinDialoguesUI
       value: 
       objectReference: {fileID: 836977072}
@@ -1905,7 +1915,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9267832
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -1915,7 +1925,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.37559667
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
@@ -1930,7 +1940,7 @@ PrefabInstance:
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -44.122
       objectReference: {fileID: 0}
     - target: {fileID: 5793066541931089833, guid: 357f09e333f50a9428d228659e74995b,
         type: 3}
