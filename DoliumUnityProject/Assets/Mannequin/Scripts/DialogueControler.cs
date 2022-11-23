@@ -58,7 +58,6 @@ public class DialogueControler : MonoBehaviour
                     
                     DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
                 }
-                Debug.Log(_input.interact);
                 _input.interact = false;
             }
 
@@ -78,6 +77,7 @@ public class DialogueControler : MonoBehaviour
 
     IEnumerator DisplayDialogue()
     {
+        
         yield return new WaitForSeconds(0.35f);
         NameZoneText.GetComponent<Text>().text = mannequinName;
         DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
@@ -86,7 +86,7 @@ public class DialogueControler : MonoBehaviour
 
     IEnumerator UndisplayDialogues()
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.7f);
         mannequinDialoguesUI.SetActive(false);
     }
 }
