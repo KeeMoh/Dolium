@@ -49,6 +49,7 @@ namespace StarterAssets
 		public void OnInteract(InputValue value)
         {
 			InteractInput(value.isPressed);
+			GetComponent<InteractionController>().ExecuteInteraction();
         }
 
 		public void OnScrollInteractions(InputValue value)
