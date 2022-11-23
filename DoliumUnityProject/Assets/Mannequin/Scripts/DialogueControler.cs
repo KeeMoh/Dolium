@@ -28,6 +28,7 @@ public class DialogueControler : MonoBehaviour
             NameZoneText = mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).gameObject;
             DialogueZoneText = mannequinDialoguesUI.transform.Find("DialoguesZone").GetChild(0).gameObject;
             _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
+            other.GetComponent<InteractionController>().CreateInteraction("New Interaction!");
         }
     }
 
@@ -68,6 +69,7 @@ public class DialogueControler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<InteractionController>().DeleteInteraction("New Interaction!");
             NameZoneText.GetComponent<Text>().text = "";
             DialogueZoneText.GetComponent<Text>().text = "";
             mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");
