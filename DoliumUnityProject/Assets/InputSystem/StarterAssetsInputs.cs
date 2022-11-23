@@ -57,6 +57,8 @@ namespace StarterAssets
 			ScrollInteractionsInput(value.Get<float>());
 			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
         }
+
+
 #endif
 
 

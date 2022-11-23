@@ -10,6 +10,7 @@ public class DialogueControler : MonoBehaviour
     [SerializeField] private GameObject mannequinDialoguesUI;
     [SerializeField] private string mannequinName;
     [SerializeField] private string[] mannequinDialogues;
+    [SerializeField] private string interactionName;
 
     private bool dialoguesDisplayed;
 
@@ -102,6 +103,7 @@ public class DialogueControler : MonoBehaviour
     {
         if (mannequinDialoguesUI.activeInHierarchy)
         {
+            other.gameObject.GetComponent<InteractionController>().DeleteInteraction(interactionName);
             NameZoneText.GetComponent<Text>().text = "";
             DialogueZoneText.GetComponent<Text>().text = "";
             mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");
