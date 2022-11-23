@@ -13,7 +13,6 @@ public class InteractionController : MonoBehaviour
     public bool canInteract = true;
 
 
-
     public void CreateInteraction(GameObject gameObjectToInteract)
     {
         Transform newInteraction = Instantiate(interactionSelectionPrefab, Vector3.zero, Quaternion.identity) as Transform;

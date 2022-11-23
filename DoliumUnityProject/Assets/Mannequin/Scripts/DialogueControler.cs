@@ -10,6 +10,7 @@ public class DialogueControler : MonoBehaviour
     [SerializeField] private GameObject mannequinDialoguesUI;
     [SerializeField] private string mannequinName;
     [SerializeField] private string[] mannequinDialogues;
+    [SerializeField] private string interactionName;
 
     private bool dialoguesDisplayed;
 
