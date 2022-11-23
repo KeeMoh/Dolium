@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ScrollInteractions",
+                    "type": "Value",
+                    "id": "e1e3f2cb-d25d-491f-88eb-714de461a3a4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -276,6 +285,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "907eb41b-15e9-4870-a0e9-73b8c63a5245",
+                    "path": "*/{ScrollVertical}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "ScrollInteractions",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

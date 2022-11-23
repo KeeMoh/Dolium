@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool grab;
 		public bool discard;
 		public bool interact;
+		public float scrollInteraction;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -60,6 +61,12 @@ namespace StarterAssets
         {
 			InteractInput(value.isPressed);
         }
+
+		public void OnScrollInteractions(InputValue value)
+        {
+			ScrollInteractionsInput(value.Get<float>());
+			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
+        }
 #endif
 
 
@@ -98,6 +105,11 @@ namespace StarterAssets
         {
 			interact = newInteractState;
         }
+
+		public void ScrollInteractionsInput(float newscrollInteraction)
+        {
+			scrollInteraction = newscrollInteraction;
+		}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
