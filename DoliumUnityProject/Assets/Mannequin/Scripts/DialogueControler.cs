@@ -103,7 +103,7 @@ public class DialogueControler : MonoBehaviour
     {
         if (mannequinDialoguesUI.activeInHierarchy)
         {
-            other.gameObject.GetComponent<InteractionController>().DeleteInteraction(interactionName);
+            other.gameObject.GetComponent<InteractionController>().DeleteInteraction(gameObject);
             NameZoneText.GetComponent<Text>().text = "";
             DialogueZoneText.GetComponent<Text>().text = "";
             mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");
