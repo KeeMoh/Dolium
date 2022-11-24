@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool grab;
 		public bool discard;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,7 +56,13 @@ namespace StarterAssets
 		{
 			DiscardInput(value.isPressed);
 		}
+
+    public void OnInteract(InputValue value)
+    {
+			InteractInput(value.isPressed);
+    }
 #endif
+
 
 
 		public void MoveInput(Vector2 newMoveDirection)
@@ -87,6 +94,11 @@ namespace StarterAssets
 			discard = newDiscardState;
 		}
 
+
+		public void InteractInput(bool newInteractState)
+        {
+			interact = newInteractState;
+        }
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
