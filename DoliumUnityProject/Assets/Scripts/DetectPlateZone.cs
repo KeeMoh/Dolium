@@ -13,7 +13,7 @@ public class DetectPlateZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!islock && !rightHand.isCarried())
+        if (!islock)
         {
             if (other.gameObject.CompareTag("Dishes"))
             {
