@@ -69,11 +69,7 @@ namespace StarterAssets
 			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
         }
 
-		public void OnScrollInteractions(InputValue value)
-        {
-			ScrollInteractionsInput(value.Get<float>());
-			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
-        }
+
 #endif
 
 
