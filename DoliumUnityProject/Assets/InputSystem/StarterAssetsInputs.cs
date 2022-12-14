@@ -114,6 +114,16 @@ namespace StarterAssets
 			scrollInteraction = newscrollInteraction;
 		}
 
+		public void InteractInput(bool newInteractState)
+        {
+			interact = newInteractState;
+        }
+
+		public void ScrollInteractionsInput(float newscrollInteraction)
+        {
+			scrollInteraction = newscrollInteraction;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
