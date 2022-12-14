@@ -1829,6 +1829,9 @@ GameObject:
   - component: {fileID: 469842789987587539}
   - component: {fileID: 5793066541931089839}
   - component: {fileID: 5793066541931089836}
+  - component: {fileID: 8409338312786835127}
+  - component: {fileID: 5683518868024901263}
+  - component: {fileID: 919323275569411588}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Mannequin
@@ -1908,6 +1911,49 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.65, z: 0}
+--- !u!114 &8409338312786835127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5269cf7204a612a47a9523928e0fef63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mannequinDialoguesUI: {fileID: 0}
+  mannequinName: 
+  mannequinDialogues: []
+  interactionName: 
+--- !u!65 &5683518868024901263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.46, y: 0.5718835, z: 1.48}
+  m_Center: {x: 0, y: 0.29594174, z: 0}
+--- !u!114 &919323275569411588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd82b0f499d2c04bbe2fb765128bf08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionState: 0
+  interactionName: 
 --- !u!1 &6837788985717894404
 GameObject:
   m_ObjectHideFlags: 0
