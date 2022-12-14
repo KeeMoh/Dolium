@@ -104,15 +104,6 @@ namespace StarterAssets
 		}
 
 
-		public void InteractInput(bool newInteractState)
-        {
-			interact = newInteractState;
-        }
-
-		public void ScrollInteractionsInput(float newscrollInteraction)
-        {
-			scrollInteraction = newscrollInteraction;
-		}
 
 		public void InteractInput(bool newInteractState)
         {
