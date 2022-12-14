@@ -1178,6 +1178,8 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  grab: 0
+  discard: 0
   interact: 0
   scrollInteraction: 0
   analogMovement: 0
@@ -1294,9 +1296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd687226ab066f439780796da97df2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMenu: {fileID: 0}
+  interactionMenu: {fileID: 8954165049668581709, guid: 4c12443dbe5d2b14581aa5c9d8834ff1,
+    type: 3}
   interactionSelectionPrefab: {fileID: 2161335544078249705, guid: 7081a81fb68fa9344988256ec8736fa2,
     type: 3}
+  canInteract: 1
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0
