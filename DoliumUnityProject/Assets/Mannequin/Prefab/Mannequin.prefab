@@ -1827,11 +1827,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5793066541931089833}
   - component: {fileID: 469842789987587539}
-  - component: {fileID: 5793066541931089839}
   - component: {fileID: 5793066541931089836}
-  - component: {fileID: 8409338312786835127}
   - component: {fileID: 5683518868024901263}
+  - component: {fileID: 5793066541931089839}
+  - component: {fileID: 8409338312786835127}
   - component: {fileID: 919323275569411588}
+  - component: {fileID: 5792759679792841119}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Mannequin
@@ -1877,22 +1878,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5793066541931089839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570413203173446931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0188fd5611373284d8c9d1e4d041e4ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  neck: {fileID: 5765588021818529925}
-  playerHead: {fileID: 0}
-  baseDirection: {fileID: 728707793735501839}
-  isObserved: 0
 --- !u!143 &5793066541931089836
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1911,6 +1896,35 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.65, z: 0}
+--- !u!65 &5683518868024901263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.46, y: 0.5718835, z: 1.48}
+  m_Center: {x: 0, y: 0.29594174, z: 0}
+--- !u!114 &5793066541931089839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0188fd5611373284d8c9d1e4d041e4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neck: {fileID: 5765588021818529925}
+  playerHead: {fileID: 0}
+  baseDirection: {fileID: 728707793735501839}
+  isObserved: 0
 --- !u!114 &8409338312786835127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,19 +1941,6 @@ MonoBehaviour:
   mannequinName: 
   mannequinDialogues: []
   interactionName: 
---- !u!65 &5683518868024901263
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570413203173446931}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.46, y: 0.5718835, z: 1.48}
-  m_Center: {x: 0, y: 0.29594174, z: 0}
 --- !u!114 &919323275569411588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,6 +1955,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionState: 0
   interactionName: 
+--- !u!114 &5792759679792841119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570413203173446931}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6837788985717894404
 GameObject:
   m_ObjectHideFlags: 0
