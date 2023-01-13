@@ -12,7 +12,10 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool grab;
+		public bool discard;
 		public bool interact;
+		public float scrollInteraction;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -45,10 +48,28 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
+		public void OnGrab(InputValue value)
+		{
+			GrabInput(value.isPressed);
+		}
+
+		public void OnDiscard(InputValue value)
+		{
+			DiscardInput(value.isPressed);
+		}
 		public void OnInteract(InputValue value)
         {
 			InteractInput(value.isPressed);
+			GetComponent<InteractionController>().ExecuteInteraction();
         }
+
+		public void OnScrollInteractions(InputValue value)
+        {
+			ScrollInteractionsInput(value.Get<float>());
+			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
+        }
+
+
 #endif
 
 
@@ -72,11 +93,27 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+		public void GrabInput(bool newGrabState)
+		{
+			grab = newGrabState;
+		}
+
+		public void DiscardInput(bool newDiscardState)
+		{
+			discard = newDiscardState;
+		}
+
+
 
 		public void InteractInput(bool newInteractState)
         {
 			interact = newInteractState;
         }
+
+		public void ScrollInteractionsInput(float newscrollInteraction)
+        {
+			scrollInteraction = newscrollInteraction;
+		}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

@@ -10,26 +10,25 @@ public class DialogueControler : MonoBehaviour
     [SerializeField] private GameObject mannequinDialoguesUI;
     [SerializeField] private string mannequinName;
     [SerializeField] private string[] mannequinDialogues;
+    [SerializeField] private string interactionName;
+
+    private bool dialoguesDisplayed;
 
     private int mannequinDialogueIndex;
     private GameObject NameZoneText;
     private GameObject DialogueZoneText;
 
     private StarterAssets.StarterAssetsInputs _input;
-    
-    
+    private Interaction _interaction;
+    private GameObject _interactionMenu;
 
-    private void OnTriggerEnter(Collider other)
+
+    private void Start()
     {
-
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            NameZoneText = mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).gameObject;
-            DialogueZoneText = mannequinDialoguesUI.transform.Find("DialoguesZone").GetChild(0).gameObject;
-            _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
-        }
+        _interaction = GetComponent<Interaction>();
+        _interactionMenu = GameObject.Find("InteractionMenu");
     }
+
 
 
 
@@ -37,28 +36,19 @@ public class DialogueControler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (_input.interact)
+            if (!dialoguesDisplayed)
             {
-                if (!mannequinDialoguesUI.activeInHierarchy)
+                if (_interaction.interactionState)
                 {
-                    mannequinDialoguesUI.SetActive(true);
-                    StartCoroutine(DisplayDialogue());
+                    DisplayDialogues(other);
+                    dialoguesDisplayed = true;
                 }
-                else
-                {
-                    if(mannequinDialogueIndex < mannequinDialogues.Length)
-                    {
-                        mannequinDialogueIndex++;
+            }
+            else if (_input.interact && dialoguesDisplayed)
+            {
 
-                    }
-                    else
-                    {
-                        mannequinDialogueIndex = 0;
-                    }
-                    
-                    DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
-                }
-                _input.interact = false;
+                ChangeDialogues(other);
+                
             }
 
         }
@@ -68,25 +58,76 @@ public class DialogueControler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            NameZoneText.GetComponent<Text>().text = "";
-            DialogueZoneText.GetComponent<Text>().text = "";
-            mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");
-            StartCoroutine(UndisplayDialogues());
+            UndisplayDialogues(other);
         }
     }
 
-    IEnumerator DisplayDialogue()
+
+    private void DisplayDialogues(Collider other)
+    {
+        NameZoneText = mannequinDialoguesUI.transform.Find("NameZone").GetChild(0).gameObject;
+        DialogueZoneText = mannequinDialoguesUI.transform.Find("DialoguesZone").GetChild(0).gameObject;
+        mannequinDialoguesUI.SetActive(true);
+        StartCoroutine(DisplayDialogueCoroutine());
+        _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
+        _interaction.interactionState = false;
+        _interactionMenu.SetActive(false);
+        other.gameObject.GetComponent<InteractionController>().DeleteInteraction(gameObject);
+        other.gameObject.GetComponent<InteractionController>().canInteract = false;
+        
+        
+    }
+
+    private void ChangeDialogues(Collider other)
+    {
+        if (mannequinDialogueIndex < mannequinDialogues.Length )
+        {
+            mannequinDialogueIndex++;
+        }
+        else
+        {
+            mannequinDialogueIndex = 0;
+            UndisplayDialogues(other);
+            other.GetComponent<InteractionController>().CreateInteraction(gameObject);
+        }
+
+        if (mannequinDialogueIndex <= mannequinDialogues.Length && mannequinDialogueIndex > 0)
+        {
+            DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex-1];
+        }
+        
+        _input.interact = false;
+    }
+
+    private void UndisplayDialogues(Collider other)
+    {
+        if (mannequinDialoguesUI.activeInHierarchy)
+        {
+            other.gameObject.GetComponent<InteractionController>().DeleteInteraction(gameObject);
+            NameZoneText.GetComponent<Text>().text = "";
+            DialogueZoneText.GetComponent<Text>().text = "";
+            mannequinDialoguesUI.GetComponent<Animator>().SetTrigger("Exit");
+            StartCoroutine(UndisplayDialoguesCoroutine());
+        }
+     
+        other.GetComponent<InteractionController>().canInteract = true;
+        _interactionMenu.SetActive(true);
+    }
+
+    IEnumerator DisplayDialogueCoroutine()
     {
         
         yield return new WaitForSeconds(0.35f);
         NameZoneText.GetComponent<Text>().text = mannequinName;
-        DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[mannequinDialogueIndex];
+        DialogueZoneText.GetComponent<Text>().text = mannequinDialogues[0];
         
     }
 
-    IEnumerator UndisplayDialogues()
+    IEnumerator UndisplayDialoguesCoroutine()
     {
+        
         yield return new WaitForSeconds(0.7f);
         mannequinDialoguesUI.SetActive(false);
+        dialoguesDisplayed = false;
     }
 }

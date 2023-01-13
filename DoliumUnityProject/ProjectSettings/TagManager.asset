@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Mannequin
+  - ObjectZone
   layers:
   - Default
   - TransparentFX
