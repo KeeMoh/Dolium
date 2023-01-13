@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RightHandHandle : MonoBehaviour
 {
-    private GameObject obj, objZone;
+    private GameObject obj;
     private Rigidbody rb;
     private BoxCollider coll;
     public Transform player, Cam;
+    static public GameObject grabObj;
 
     public float dropForwardForce, dropUpwardForce;
     private bool islock;
@@ -18,13 +19,14 @@ public class RightHandHandle : MonoBehaviour
     {
         _input = player.GetComponent<StarterAssets.StarterAssetsInputs>();
         _input.discard = false;
+        grabObj = null;
     }
 
     private void Update()
     {
         if (!islock)
         {
-            if (_input.discard && isCarried())
+            if (_input.discard && RightHandHandle.grabObj != null)
             {
                 islock = true;
                 Drop();
@@ -34,7 +36,6 @@ public class RightHandHandle : MonoBehaviour
     private void Drop()
     {
         obj = transform.GetChild(0).gameObject;
-        objZone = transform.GetChild(0).GetChild(0).gameObject;
         rb = obj.GetComponent<Rigidbody>();
         coll = obj.GetComponent<BoxCollider>();
 
@@ -50,14 +51,8 @@ public class RightHandHandle : MonoBehaviour
         _input.discard = false;
 
         transform.GetChild(0).SetParent(null);
-        objZone.SetActive(true);
-
+        RightHandHandle.grabObj = null;
         islock = false;
-    }
-
-    public bool isCarried()
-    {
-        return (transform.childCount > 0);
     }
 
 }
