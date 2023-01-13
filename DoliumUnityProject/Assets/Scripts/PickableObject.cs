@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class PickableObject : MonoBehaviour
 {
-
-    public Rigidbody rb;
     public BoxCollider coll;
     public Transform player, objectContainer, Cam;
+    private Interaction _interaction;
 
     private bool islock = false;
-
-    private StarterAssets.StarterAssetsInputs _input;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _input = other.GetComponent<StarterAssets.StarterAssetsInputs>();
-            _input.grab = false;
+            _interaction = GetComponent<Interaction>();
         }
 
     }
@@ -31,27 +27,47 @@ public class PickableObject : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player"))
             {
-                if (_input.grab)
+                if (_interaction.interactionState)
                 {
-                    islock = true;
-                    PickUp();
+                   
+                    if (RightHandHandle.grabObj != null)
+                    {
+                        if (gameObject != RightHandHandle.grabObj)
+                        {
+                            islock = true;
+                            DropGround();
+                            PickUp();
+                        }
+                    } else
+                    {
+                        islock = true;
+                        PickUp();
+                    }
+                    
                 }
 
             }
         }
     }
 
+    private void DropGround()
+    {
+        RightHandHandle.grabObj.GetComponent<Rigidbody>().isKinematic = false;
+        RightHandHandle.grabObj.GetComponents<BoxCollider>()[0].isTrigger = false;
+        objectContainer.GetChild(0).SetParent(null);
+        RightHandHandle.grabObj = null;
+    }
+
     private void PickUp()
     {
-        transform.parent.SetParent(objectContainer);
-        transform.parent.localPosition = Vector3.zero;
-        transform.parent.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.parent.localScale = Vector3.one;
-
-        rb.isKinematic = true;
+        transform.SetParent(objectContainer);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = Vector3.one;
+        transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         coll.isTrigger = true;
-        transform.gameObject.SetActive(false);
-        _input.grab = false;
+        _interaction.interactionState = false;
+        RightHandHandle.grabObj = transform.gameObject;
         islock = false;
     }
 

@@ -12,7 +12,6 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public bool grab;
 		public bool discard;
 		public bool interact;
 		public float scrollInteraction;
@@ -46,11 +45,6 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
-		}
-
-		public void OnGrab(InputValue value)
-		{
-			GrabInput(value.isPressed);
 		}
 
 		public void OnDiscard(InputValue value)
@@ -93,16 +87,11 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		public void GrabInput(bool newGrabState)
-		{
-			grab = newGrabState;
-		}
 
 		public void DiscardInput(bool newDiscardState)
 		{
 			discard = newDiscardState;
 		}
-
 
 
 		public void InteractInput(bool newInteractState)
