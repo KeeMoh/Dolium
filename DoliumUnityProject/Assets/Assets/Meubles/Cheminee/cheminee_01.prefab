@@ -1849,7 +1849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5641265505825738118}
   m_Layer: 0
-  m_Name: cheminer_01
+  m_Name: cheminee_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
