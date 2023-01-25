@@ -168,7 +168,6 @@ namespace StarterAssets
             
             Move();
             
-            
             RotatePlayer();
         }
 
@@ -227,15 +226,15 @@ namespace StarterAssets
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
             // Cinemachine will follow this target
-            if (GravityChanged)
+            if (GravityChanged && !GravityIsChanging)
             {
                 CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 180.0f);
             }
-            else
+            else if (!GravityIsChanging)
             {
                 CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
-                _cinemachineTargetYaw, -transform.rotation.z * 270.0f);
+                _cinemachineTargetYaw, 0);
             }
             
         }
@@ -369,7 +368,7 @@ namespace StarterAssets
                 }
 
                 // Jump
-                /*if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     if (GravityChanged)
@@ -387,7 +386,7 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
-                }*/
+                }
 
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
@@ -476,17 +475,44 @@ namespace StarterAssets
             {
                 if (timeRotate > maxTime/3)
                 {
-                    Gravity = 10;
+                    if (!GravityChanged)
+                    {
+                        Gravity = 10;
+                    }
+                    else
+                    {
+                        Gravity = -15;
+                    }
+                    
                 }
                 transform.rotation *= Quaternion.Euler(0, 0, (180f / maxTime) * Time.deltaTime);
-                transform.localPosition += new Vector3(0, 2 * Time.deltaTime, 0);
+                CinemachineCameraTarget.transform.rotation *= Quaternion.Euler(0, 0, (15f / maxTime) * Time.deltaTime);
                 timeRotate += Time.deltaTime;
+
+                if (!GravityChanged)
+                {
+                    transform.localPosition += new Vector3(0, 2 * Time.deltaTime, 0);
+                }
+                else
+                {
+                    transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
+                }
+
             }
             else if(GravityIsChanging)
             {
+                if (!GravityChanged)
+                {
+                    GravityChanged = true;
+                    Gravity = 15;
+                }
+                else
+                {
+                    GravityChanged = false;
+                    Gravity = -15;
+                }
                 GravityIsChanging = false;
-                GravityChanged = true;
-                Gravity = 15;
+                
                 timeRotate = 0;
             }
 
