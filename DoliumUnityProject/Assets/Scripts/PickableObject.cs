@@ -27,7 +27,11 @@ public class PickableObject : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player"))
             {
+<<<<<<< HEAD
                 if (_interaction.interactionState)
+=======
+                if (_input.grab && isPickable())
+>>>>>>> b254b55b851cf62c7910dbfaad73305fd8f59cde
                 {
 
                     if (RightHandHandle.grabObj != null)
@@ -73,6 +77,11 @@ public class PickableObject : MonoBehaviour
         Debug.Log(player.name);
         player.GetComponent<InteractionController>().DeleteInteraction(gameObject);
 
+    }
+
+    public bool isPickable()
+    {
+        return (objectContainer.childCount == 0);
     }
 
 }
