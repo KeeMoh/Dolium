@@ -12,15 +12,15 @@ public class zoneopen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Dishes"))
 
         {
-            anim.SetBool("open", false);
+            anim.SetBool("open", true);
         }
     }
 
     private void OnTriggerExit()
     {
-        anim.SetBool("open", true);
+        anim.SetBool("open", false);
     }
 }
