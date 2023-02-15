@@ -72,4 +72,6 @@ public class BalanceController : MonoBehaviour
         element1.rotation *= new Quaternion(0, 0, -way * rotationSpeed * Time.deltaTime/100, 1);
         element2.rotation *= new Quaternion(0, 0, -way * rotationSpeed * Time.deltaTime/100, 1);
     }
+
+    //Update
 }
