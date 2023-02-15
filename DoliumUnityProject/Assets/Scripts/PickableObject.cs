@@ -31,7 +31,7 @@ public class PickableObject : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player"))
             {
-                if (_input.grab)
+                if (_input.grab && isPickable())
                 {
                     islock = true;
                     PickUp();
@@ -53,6 +53,11 @@ public class PickableObject : MonoBehaviour
         transform.gameObject.SetActive(false);
         _input.grab = false;
         islock = false;
+    }
+
+    public bool isPickable()
+    {
+        return (objectContainer.childCount == 0);
     }
 
 }
