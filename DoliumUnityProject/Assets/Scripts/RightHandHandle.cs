@@ -46,7 +46,7 @@ public class RightHandHandle : MonoBehaviour
         trigger.enabled = true;
         coll.isTrigger = false;
 
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
 
         rb.AddForce(Cam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(Cam.up * dropUpwardForce, ForceMode.Impulse);

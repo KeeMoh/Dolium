@@ -496,7 +496,7 @@ namespace StarterAssets
                 }
                 else
                 {
-                    //transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
+                    transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
                 }
 
             }

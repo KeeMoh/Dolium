@@ -54,11 +54,12 @@ public class PickableObject : MonoBehaviour
     {
         RightHandHandle.grabObj.GetComponent<Rigidbody>().isKinematic = false;
         RightHandHandle.grabObj.GetComponents<BoxCollider>()[0].isTrigger = false;
-        objectContainer.GetChild(0).SetParent(null);
+        Debug.Log(RightHandHandle.grabObj.name);
+        RightHandHandle.grabObj.transform.parent = null;
         RightHandHandle.grabObj = null;
     }
 
-    private void PickUp()
+    public void PickUp()
     {
         transform.SetParent(objectContainer);
         transform.localPosition = Vector3.zero;

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BalancePlacement : MonoBehaviour
 {
-    public PickableObject pickableObject;
+    public BalancePickableObjects pickableObject;
 }
