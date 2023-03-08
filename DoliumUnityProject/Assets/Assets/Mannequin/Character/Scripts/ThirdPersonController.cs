@@ -368,7 +368,7 @@ namespace StarterAssets
                 }
 
                 // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                /*if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     if (GravityChanged)
@@ -386,7 +386,7 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
-                }
+                }*/
 
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
@@ -422,6 +422,7 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+
         }
 
 
@@ -495,7 +496,7 @@ namespace StarterAssets
                 }
                 else
                 {
-                    transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
+                    //transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
                 }
 
             }

@@ -13,6 +13,9 @@ public class ChangeGravity : MonoBehaviour
             player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
             player.GetComponent<Animator>().SetTrigger("GravityChanged");
             GetComponent<Interaction>().interactionState = false;
+            //player.transform.localPosition = new Vector3(player.transform.position.x, player.transform.position.y + 5, player.transform.position.z);
+            //GetComponent<Interaction>().interactionState = false;
+            Debug.Log("test");
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickableObject : MonoBehaviour
 {
-    public BoxCollider coll;
+    public Collider coll, trigger;
     public Transform player, objectContainer, Cam;
     private Interaction _interaction;
 
@@ -27,11 +27,7 @@ public class PickableObject : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player"))
             {
-<<<<<<< HEAD
                 if (_interaction.interactionState)
-=======
-                if (_input.grab && isPickable())
->>>>>>> b254b55b851cf62c7910dbfaad73305fd8f59cde
                 {
 
                     if (RightHandHandle.grabObj != null)
@@ -74,6 +70,8 @@ public class PickableObject : MonoBehaviour
         RightHandHandle.grabObj = transform.gameObject;
         islock = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        trigger.enabled = false;
+        coll.enabled = false;
         Debug.Log(player.name);
         player.GetComponent<InteractionController>().DeleteInteraction(gameObject);
 
