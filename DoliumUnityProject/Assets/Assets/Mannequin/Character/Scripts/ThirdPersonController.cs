@@ -39,6 +39,9 @@ namespace StarterAssets
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
+        public bool GravityChanged = false;
+        public bool GravityIsChanging = false;
+
         [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
@@ -110,6 +113,8 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        private float timeRotate = 0;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -150,6 +155,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            //GravityIsChanging = true;
         }
 
         private void Update()
@@ -158,7 +165,10 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
+            
             Move();
+            
+            RotatePlayer();
         }
 
         private void LateUpdate()
@@ -198,8 +208,17 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                if (GravityChanged)
+                {
+                    _cinemachineTargetYaw -= _input.look.x * deltaTimeMultiplier;
+                    _cinemachineTargetPitch -= _input.look.y * deltaTimeMultiplier;
+                }
+                else
+                {
+                    _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
+                    _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                }
+                
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -207,8 +226,17 @@ namespace StarterAssets
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
             // Cinemachine will follow this target
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
-                _cinemachineTargetYaw, 0.0f);
+            if (GravityChanged && !GravityIsChanging)
+            {
+                CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+                _cinemachineTargetYaw, 180.0f);
+            }
+            else if (!GravityIsChanging)
+            {
+                CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+                _cinemachineTargetYaw, 0);
+            }
+            
         }
 
         private void Move()
@@ -248,8 +276,18 @@ namespace StarterAssets
             _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
             if (_animationBlend < 0.01f) _animationBlend = 0f;
 
+
+            Vector3 inputDirection = Vector3.one;
             // normalise input direction
-            Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+            if (GravityChanged)
+            {
+                inputDirection = new Vector3(-_input.move.x, 0.0f, _input.move.y).normalized;
+            }
+            else
+            {
+                inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+            }
+            
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
@@ -261,15 +299,45 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+
+                
+
+                if (!GravityIsChanging)
+                {
+                    if (GravityChanged)
+                    {
+                        transform.rotation = Quaternion.Euler(0.0f, rotation, 180.0f);
+                    }
+                    else
+                    {
+                        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                    }
+                }
+
+
             }
 
-
-            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            if (!GravityIsChanging)
+            {
+                if (GravityChanged)
+                {
+                    Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 180.0f) * Vector3.forward;
+                    _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                }
+                else
+                {
+                    Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+                    _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                }
+            }
+            
+            
+            
 
             // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            
 
             // update animator if using character
             if (_hasAnimator)
@@ -300,17 +368,25 @@ namespace StarterAssets
                 }
 
                 // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                /*if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    if (GravityChanged)
+                    {
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * 2f * Gravity);
+
+                    }
+                    else
+                    {
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    }                    
 
                     // update animator if using character
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
-                }
+                }*/
 
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
@@ -346,7 +422,10 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+
         }
+
+
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
@@ -388,5 +467,57 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void RotatePlayer()
+        {
+            float maxTime = 1.5f;
+
+            if (timeRotate < maxTime && GravityIsChanging)
+            {
+                if (timeRotate > maxTime/3)
+                {
+                    if (!GravityChanged)
+                    {
+                        Gravity = 10;
+                    }
+                    else
+                    {
+                        Gravity = -15;
+                    }
+                    
+                }
+                transform.rotation *= Quaternion.Euler(0, 0, (180f / maxTime) * Time.deltaTime);
+                CinemachineCameraTarget.transform.rotation *= Quaternion.Euler(0, 0, (15f / maxTime) * Time.deltaTime);
+                timeRotate += Time.deltaTime;
+
+                if (!GravityChanged)
+                {
+                    transform.localPosition += new Vector3(0, 2 * Time.deltaTime, 0);
+                }
+                else
+                {
+                    transform.localPosition += new Vector3(0, -2 * Time.deltaTime, 0);
+                }
+
+            }
+            else if(GravityIsChanging)
+            {
+                if (!GravityChanged)
+                {
+                    GravityChanged = true;
+                    Gravity = 15;
+                }
+                else
+                {
+                    GravityChanged = false;
+                    Gravity = -15;
+                }
+                GravityIsChanging = false;
+                
+                timeRotate = 0;
+            }
+
+        }
+
     }
 }

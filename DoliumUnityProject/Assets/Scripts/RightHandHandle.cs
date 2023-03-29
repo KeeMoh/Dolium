@@ -6,7 +6,7 @@ public class RightHandHandle : MonoBehaviour
 {
     private GameObject obj;
     private Rigidbody rb;
-    private BoxCollider coll;
+    private Collider coll, trigger;
     public Transform player, Cam;
     static public GameObject grabObj;
 
@@ -37,12 +37,16 @@ public class RightHandHandle : MonoBehaviour
     {
         obj = transform.GetChild(0).gameObject;
         rb = obj.GetComponent<Rigidbody>();
-        coll = obj.GetComponent<BoxCollider>();
+
+        coll = obj.GetComponent<PickableObject>().coll;
+        trigger = obj.GetComponent<PickableObject>().trigger;
 
         rb.isKinematic = false;
+        coll.enabled = true;
+        trigger.enabled = true;
         coll.isTrigger = false;
 
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
 
         rb.AddForce(Cam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(Cam.up * dropUpwardForce, ForceMode.Impulse);
