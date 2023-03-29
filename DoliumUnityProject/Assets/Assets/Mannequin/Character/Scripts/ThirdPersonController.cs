@@ -362,7 +362,11 @@ namespace StarterAssets
                 }
 
                 // stop our velocity dropping infinitely when grounded
-                if (_verticalVelocity < 0.0f)
+                if (GravityChanged && _verticalVelocity > 0.0f)
+                {
+                    _verticalVelocity = 2f;
+                }
+                if (_verticalVelocity < 0.0f && !GravityChanged)
                 {
                     _verticalVelocity = -2f;
                 }
@@ -418,7 +422,11 @@ namespace StarterAssets
             }
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-            if (_verticalVelocity < _terminalVelocity)
+            if (_verticalVelocity < _terminalVelocity && !GravityChanged)
+            {
+                _verticalVelocity += Gravity * Time.deltaTime;
+            }
+            if (_verticalVelocity > -_terminalVelocity && GravityChanged)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
@@ -513,7 +521,7 @@ namespace StarterAssets
                     Gravity = -15;
                 }
                 GravityIsChanging = false;
-                
+                _verticalVelocity = 0;
                 timeRotate = 0;
             }
 

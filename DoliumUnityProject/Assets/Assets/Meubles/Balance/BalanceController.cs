@@ -40,15 +40,17 @@ public class BalanceController : MonoBehaviour
         if (element2Weight < element1Weight)
         {
             rotationSpeed = speed* (element1Weight * 1/element2Weight);
-            if (transform.rotation.eulerAngles.z > 344 || transform.rotation.eulerAngles.z < 15)
+            if (transform.rotation.eulerAngles.z < 16 || transform.rotation.eulerAngles.z > 335)
             {
                 Balance(1);
+
             }
+
         }
         if (element1Weight < element2Weight)
         {
             rotationSpeed = speed * (element2Weight * 1/element1Weight);
-            if (transform.rotation.eulerAngles.z > 345 || transform.rotation.eulerAngles.z < 16)
+            if (transform.rotation.eulerAngles.z > 344 || transform.rotation.eulerAngles.z < 20)
             {
                 Balance(-1);
             }
@@ -56,17 +58,17 @@ public class BalanceController : MonoBehaviour
         if (element1Weight == element2Weight)
         {
             rotationSpeed = speed;
-            if (transform.rotation.eulerAngles.z > -0.0001 && transform.rotation.eulerAngles.z < 0.0001)
+            if (transform.rotation.eulerAngles.z > -1 && transform.rotation.eulerAngles.z < 1)
             {
                 isBalanced= true;
                 player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
-                player.GetComponent<Animator>().SetTrigger("GravityChanged");
+                //player.GetComponent<Animator>().SetTrigger("GravityChanged");
             }
-            else if (transform.rotation.eulerAngles.z > 344 || transform.rotation.eulerAngles.z < 0.0001)
+            else if (transform.rotation.eulerAngles.z > 335 || transform.rotation.eulerAngles.z < 0.001)
             {
                 Balance(1);
             }
-            else if (transform.rotation.eulerAngles.z < 16 && transform.rotation.eulerAngles.z > 0)
+            else if (transform.rotation.eulerAngles.z < 20 && transform.rotation.eulerAngles.z > 0)
             {
                 Balance(-1);
             }
@@ -78,6 +80,7 @@ public class BalanceController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0f, 0f, way * rotationSpeed * Time.deltaTime);
         element1.rotation *= new Quaternion(0, 0, 0.88f * -way * rotationSpeed * Time.deltaTime/100, 1);
         element2.rotation *= new Quaternion(0, 0, 0.88f * -way * rotationSpeed * Time.deltaTime/100, 1);
+        Debug.Log("Change State " + transform.rotation.eulerAngles.z);
     }
 
     //Update

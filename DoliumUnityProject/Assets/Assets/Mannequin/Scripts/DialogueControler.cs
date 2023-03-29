@@ -59,6 +59,7 @@ public class DialogueControler : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UndisplayDialogues(other);
+            mannequinDialogueIndex = 0;
         }
     }
 
