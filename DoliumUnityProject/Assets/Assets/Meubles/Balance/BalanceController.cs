@@ -61,7 +61,7 @@ public class BalanceController : MonoBehaviour
             if (transform.rotation.eulerAngles.z > -1 && transform.rotation.eulerAngles.z < 1)
             {
                 isBalanced= true;
-                //player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
+                player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
                 //player.GetComponent<Animator>().SetTrigger("GravityChanged");
             }
             else if (transform.rotation.eulerAngles.z > 335 || transform.rotation.eulerAngles.z < 0.001)
@@ -80,7 +80,6 @@ public class BalanceController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0f, 0f, way * rotationSpeed * Time.deltaTime);
         element1.rotation *= new Quaternion(0, 0, 0.88f * -way * rotationSpeed * Time.deltaTime/100, 1);
         element2.rotation *= new Quaternion(0, 0, 0.88f * -way * rotationSpeed * Time.deltaTime/100, 1);
-        Debug.Log("Change State " + transform.rotation.eulerAngles.z);
     }
 
     //Update
