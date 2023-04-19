@@ -7,6 +7,10 @@ TagManager:
   - CinemachineTarget
   - Mannequin
   - ObjectZone
+  - MannequinStep1
+  - ActionEnv
+  - Dishes
+  - Key
   layers:
   - Default
   - TransparentFX
