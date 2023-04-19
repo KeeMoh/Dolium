@@ -222,8 +222,21 @@ namespace StarterAssets
             }
 
             // clamp our rotations so our values are limited 360 degrees
+            if (GravityChanged)
+            {
+                TopClamp = 30.0f;
+                BottomClamp = -70.0f;
+            }
+            else
+            {
+                TopClamp = 70.0f;
+                BottomClamp = -30.0f;
+            }
+
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+            
+            
 
             // Cinemachine will follow this target
             if (GravityChanged && !GravityIsChanging)
