@@ -59,7 +59,6 @@ public class DialogueControler : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UndisplayDialogues(other);
-            mannequinDialogueIndex = 0;
         }
     }
 
@@ -89,7 +88,17 @@ public class DialogueControler : MonoBehaviour
         {
             mannequinDialogueIndex = 0;
             UndisplayDialogues(other);
-            other.GetComponent<InteractionController>().CreateInteraction(gameObject);
+            if (interactionName == "mannequinStep1")
+            {
+                mannequinActions.isNotify = true;
+
+            } else
+            {
+                if (!mannequinActions.loading)
+                {
+                    other.GetComponent<InteractionController>().CreateInteraction(gameObject);
+                }
+            }
         }
 
         if (mannequinDialogueIndex <= mannequinDialogues.Length && mannequinDialogueIndex > 0)

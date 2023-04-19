@@ -26,9 +26,9 @@ public class BalanceController : MonoBehaviour
         {
             ChangeState();
         }
-        else if (player.GetComponent<ThirdPersonController>().GravityIsChanging)
-        {
-        }
+        //else if (player.GetComponent<ThirdPersonController>().GravityIsChanging)
+        //{
+        //}
 
 
         PlaceObject();
@@ -61,7 +61,7 @@ public class BalanceController : MonoBehaviour
             if (transform.rotation.eulerAngles.z > -1 && transform.rotation.eulerAngles.z < 1)
             {
                 isBalanced= true;
-                player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
+                //player.GetComponent<ThirdPersonController>().GravityIsChanging = true;
                 //player.GetComponent<Animator>().SetTrigger("GravityChanged");
             }
             else if (transform.rotation.eulerAngles.z > 335 || transform.rotation.eulerAngles.z < 0.001)
