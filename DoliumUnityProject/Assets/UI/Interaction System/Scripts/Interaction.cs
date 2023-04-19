@@ -13,7 +13,7 @@ public class Interaction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (gameObject.CompareTag("Dishes"))
+            if (gameObject.CompareTag("GrableObj"))
             {
                 if (RightHandHandle.grabObj == null)
                 {
@@ -26,12 +26,16 @@ public class Interaction : MonoBehaviour
                         other.GetComponent<InteractionController>().CreateInteraction(gameObject);
                     }
                 }
-            } 
+            }
+            else if (gameObject.CompareTag("ActionEnv"))
+            {
+                other.GetComponent<InteractionController>().CreateInteraction(gameObject);
+            }
             else
             {
                 other.GetComponent<InteractionController>().CreateInteraction(gameObject);
             }
-        } 
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -40,6 +44,6 @@ public class Interaction : MonoBehaviour
         {
             other.gameObject.GetComponent<InteractionController>().DeleteInteraction(gameObject);
         }
-            
+
     }
 }
