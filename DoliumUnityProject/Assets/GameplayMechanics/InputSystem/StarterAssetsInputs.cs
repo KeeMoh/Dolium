@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool discard;
 		public bool interact;
 		public float scrollInteraction;
+		public bool pause;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -62,7 +63,10 @@ namespace StarterAssets
 			ScrollInteractionsInput(value.Get<float>());
 			GetComponent<InteractionController>().ChooseInteraction(value.Get<float>());
         }
-
+		public void OnPause(InputValue value)
+		{
+			PauseInput(value.isPressed);
+		}
 
 #endif
 
@@ -102,6 +106,10 @@ namespace StarterAssets
 		public void ScrollInteractionsInput(float newscrollInteraction)
         {
 			scrollInteraction = newscrollInteraction;
+		}
+		public void PauseInput(bool newPauseState)
+		{
+			pause = newPauseState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
