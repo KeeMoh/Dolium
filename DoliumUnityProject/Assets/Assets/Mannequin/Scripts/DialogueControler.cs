@@ -59,6 +59,7 @@ public class DialogueControler : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UndisplayDialogues(other);
+            mannequinDialogueIndex = 0;
         }
     }
 
@@ -135,7 +136,6 @@ public class DialogueControler : MonoBehaviour
 
     IEnumerator UndisplayDialoguesCoroutine()
     {
-        
         yield return new WaitForSeconds(0.7f);
         mannequinDialoguesUI.SetActive(false);
         dialoguesDisplayed = false;
