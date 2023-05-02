@@ -300,34 +300,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "UI",
-            "id": "6618baf8-022f-4bfa-af5f-14701f7fe163",
-            "actions": [
-                {
-                    "name": "skip",
-                    "type": "Button",
-                    "id": "0825789a-2dfa-41a1-a56a-0e43d2388ddf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "b53ca9a0-a05d-4831-95e4-1ca07bf512ac",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "skip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": [

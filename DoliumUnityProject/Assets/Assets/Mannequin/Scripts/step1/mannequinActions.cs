@@ -15,7 +15,6 @@ public class mannequinActions : MonoBehaviour
 
     static public bool desappear;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +24,7 @@ public class mannequinActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isNotify) {
             loading = true;
             isNotify = false;
