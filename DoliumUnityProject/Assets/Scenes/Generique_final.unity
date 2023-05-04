@@ -1190,8 +1190,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Merci \xE0 Lyon YNOV Campus de nos avoir permis d\u2019effectuer ce projet
     YDAYS\n\n\nAlexandre et Sol\xE8ne pour leur aide tout au long du projet\n\n\n\nElo\xEFse
-    GERMAIN pour son travail sonore de qualit\xE9\n\n\n\n\nEt surtout un grand merci
-    \xE0 \r\n\r\n\n"
+    pour son travail sonore de qualit\xE9\n\n\n\n\nEt surtout un grand merci \xE0
+    \r\n\r\n\n"
 --- !u!222 &1523464857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ MonoBehaviour:
     TOLLEMER\r\n\n\n\nDESIGNERS\r\n\r\nMa\xEBlys CHARPENAY\r\n\r\nJulien SERRIERE\r\n\r\nAnthony
     VANDROUX\n\r\n\n\nDEVELOPPEURS\r\n\r\nEliott GUIGNABAUDET\r\n\r\nPierre VUE\r\n\r\nCorentin
     MAILLER\r\n\nDylan CHARRETIER\n\nThien-Tin TRAN\n\n\nENCADRE PAR\n\nKevin VALLIN\n\nMar\xE9va
-    GAUSS\n\n\nSUIVI PAR\n\nAlexandre \n\nSol\xE8ne\n\n"
+    GAUSS\n\n\nSUIVI PAR\n\nAlexandre CHEREMETIEFF\n\nSol\xE8ne MARTY\n\n"
 --- !u!222 &1564557270
 CanvasRenderer:
   m_ObjectHideFlags: 0

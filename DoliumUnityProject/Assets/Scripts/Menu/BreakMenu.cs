@@ -50,6 +50,8 @@ public class BreakMenu : MonoBehaviour
                 onpause = true;
                 pauseCanvas.SetActive(false);
                 pausemenu.SetActive(false);
+                commandes.SetActive(false);
+                confirmQuit.SetActive(false);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1;
