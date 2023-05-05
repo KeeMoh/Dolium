@@ -11,7 +11,8 @@ public class InteractionController : MonoBehaviour
     public List<GameObject> gameObjectsInteractions = new List<GameObject>();
     private int interactionIndex = 0;
     public bool canInteract = true;
-
+    public Sprite chooseImg;
+    public Sprite unChooseImg;
 
     public void CreateInteraction(GameObject gameObjectToInteract)
     {
@@ -23,8 +24,21 @@ public class InteractionController : MonoBehaviour
         gameObjectsInteractions.Add(gameObjectToInteract);
         if (interactions.Count == 1)
         {
-            interactions[0].GetComponent<Image>().color = new Color(0,0.6f,0);
+            interactions[0].GetComponent<Image>().sprite = chooseImg;
+            interactions[0].GetComponent<Image>().color = new Color(1, 1, 1);
+            interactions[0].GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
             gameObjectToInteract.GetComponent<Outline>().enabled= true;
+        } else if (interactions.Count > 1)
+        {
+            interactions[0].GetComponent<Image>().sprite = chooseImg;
+            interactions[0].GetComponent<Image>().color = new Color(1, 1, 1);
+            interactions[0].GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
+            for (int i = 1; i < interactions.Count; i++)
+            {
+                interactions[i].GetComponent<Image>().sprite = unChooseImg;
+                interactions[i].GetComponent<Image>().color = new Color(0, 0, 0);
+                interactions[i].GetChild(0).GetComponent<Text>().color = new Color(1, 1, 1);
+            }
         }
         newInteraction.GetComponent<RectTransform>().localScale = Vector3.one;
     }
@@ -46,7 +60,10 @@ public class InteractionController : MonoBehaviour
         if (interactions.Count >= 1)
         {
 
-            interactions[0].GetComponent<Image>().color = new Color(0, 0.6f, 0);
+            //interactions[0].GetComponent<Image>().color = new Color(0, 0.6f, 0);
+            interactions[0].GetComponent<Image>().sprite = chooseImg;
+            interactions[0].GetComponent<Image>().color = new Color(1, 1, 1);
+            interactions[0].GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
             gameObjectsInteractions[0].GetComponent<Outline>().enabled = true;
             interactionIndex = 0;
 
@@ -60,11 +77,17 @@ public class InteractionController : MonoBehaviour
         {
             if (interactionIndex < interactions.Count-1)
             {
-                
-                interactions[interactionIndex].GetComponent<Image>().color = new Color(0.66f, 0, 0);
+
+                //interactions[interactionIndex].GetComponent<Image>().color = new Color(0.66f, 0, 0); //rouge
+                interactions[interactionIndex].GetComponent<Image>().sprite = unChooseImg;
+                interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0, 0);
+                interactions[interactionIndex].GetChild(0).GetComponent<Text>().color = new Color(1, 1, 1);
                 gameObjectsInteractions[interactionIndex].GetComponent<Outline>().enabled = false;
                 interactionIndex += 1;
-                interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0.6f, 0);
+                //interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0.6f, 0); //vert
+                interactions[interactionIndex].GetComponent<Image>().sprite = chooseImg;
+                interactions[interactionIndex].GetComponent<Image>().color = new Color(1, 1, 1);
+                interactions[interactionIndex].GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
                 gameObjectsInteractions[interactionIndex].GetComponent<Outline>().enabled = true;
             }
         }
@@ -73,10 +96,16 @@ public class InteractionController : MonoBehaviour
         {
             if (interactionIndex > 0)
             {
-                interactions[interactionIndex].GetComponent<Image>().color = new Color(0.66f, 0, 0);
+                //interactions[interactionIndex].GetComponent<Image>().color = new Color(0.66f, 0, 0);
+                interactions[interactionIndex].GetComponent<Image>().sprite = unChooseImg;
+                interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0, 0);
+                interactions[interactionIndex].GetChild(0).GetComponent<Text>().color = new Color(1, 1, 1);
                 gameObjectsInteractions[interactionIndex].GetComponent<Outline>().enabled = false;
                 interactionIndex -= 1;
-                interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0.6f, 0);
+                //interactions[interactionIndex].GetComponent<Image>().color = new Color(0, 0.6f, 0);
+                interactions[interactionIndex].GetComponent<Image>().sprite = chooseImg;
+                interactions[interactionIndex].GetComponent<Image>().color = new Color(1, 1, 1);
+                interactions[interactionIndex].GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
                 gameObjectsInteractions[interactionIndex].GetComponent<Outline>().enabled = true;
             }
         }
