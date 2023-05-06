@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -93,7 +94,10 @@ public class DialogueControler : MonoBehaviour
             {
                 mannequinActions.isNotify = true;
 
-            } else
+            } else if (interactionName == "mannequinStep2")
+            {
+                other.GetComponent<ThirdPersonController>().GravityIsChanging = true;
+            }else
             {
                 if (!mannequinActions.loading)
                 {
