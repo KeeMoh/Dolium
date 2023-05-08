@@ -9,7 +9,10 @@ public class LoadAnimStartScene : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Animator>().SetInteger("sceneNb", sceneNb);
+        if (sceneNb != 2)
+        {
+            GetComponent<Animator>().SetInteger("sceneNb", sceneNb);
+        }
         camAnimator.SetInteger("sceneNb", sceneNb);
     }
 }

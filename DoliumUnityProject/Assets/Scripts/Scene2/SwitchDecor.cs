@@ -14,15 +14,15 @@ public class SwitchDecor : MonoBehaviour
     //[SerializeField] private List<GameObject> colliders;
     //public GameObject obj;
     /*    public Light light;*/
-    private Material[] materials;
+    //private Material[] materials;
     private Material dissolveMaterial;
     private Renderer[] renderers;
     
     private Coroutine hide, show;
-    List<Material> materialList;
-    private float hideDuration = 1.0f;
+    //List<Material> materialList;
+    //private float hideDuration = 1.0f;
     private float dissolveAmount = 0f;
-    private bool isDissolve = false, isOldingKey = false;
+    private bool isDissolve = false;
     void Start()
     {
         
@@ -91,7 +91,6 @@ public class SwitchDecor : MonoBehaviour
                         foreach (Material material in renderer.materials)
                         {
                             material.SetFloat("_Dissolve", dissolveAmount);
-                            print(material.name);
                         }
                     }
                     dissolveMaterial = renderer.material;
@@ -132,7 +131,6 @@ public class SwitchDecor : MonoBehaviour
                     foreach(Material material in renderer.materials)
                     {
                         material.SetFloat("_Dissolve", dissolveAmount);
-                        print(material.name);                        
                     }
                 }
                 dissolveMaterial = renderer.material;

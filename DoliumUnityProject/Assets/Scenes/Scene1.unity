@@ -2474,14 +2474,12 @@ MonoBehaviour:
   mannequinDialoguesUI: {fileID: 7735387196007061787}
   mannequinName: ????
   mannequinDialogues:
-  - "Il va \xEAtre temps pour moi de partir..."
-  - "Quoi qu'il arrive, souviens toi que tu es la seule \xE0 pouvoir d\xE9cider de
-    ta r\xE9action"
   - "Je sais que je suis \xE0 l'origine de ce qui se passe mais..."
-  - "Tu verras ! Chaque \xE9tapes compte et certaines seront probablement plus difficiles
+  - "Tu verras ! Chaque \xE9tape compte et certaines seront probablement plus difficiles
     que les autres..."
-  - Je dois y aller ! Je te laisse avancer un peu toute seule et on se retrouvera
-    plus tard
+  - "A pr\xE9sent, toi seule pourra d\xE9cider d'avancer plus ou moins vite dans
+    les epreuves qui t'attendentent !"
+  - Cela ne veut pas pour autant dire que tu seras seule pour les traverser
   interactionName: mannequinStep1
   endzone: {fileID: 573669166091983980}
 --- !u!114 &643830708
@@ -3215,6 +3213,121 @@ Transform:
   m_Father: {fileID: 692275609}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &897596715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897596716}
+  - component: {fileID: 897596718}
+  - component: {fileID: 897596717}
+  m_Layer: 0
+  m_Name: spot_light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897596716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897596715}
+  m_LocalRotation: {x: 0.40076932, y: 0.33437356, z: -0.62529135, w: 0.580163}
+  m_LocalPosition: {x: 0.21099025, y: 1.8125803, z: -0.834985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7758787894474702105}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &897596717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897596715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!108 &897596718
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897596715}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.9089562, b: 0.6745283, a: 1}
+  m_Intensity: 1
+  m_Range: 3
+  m_SpotAngle: 53.176086
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 823
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &912842521
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,7 +3934,7 @@ SkinnedMeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
@@ -5547,7 +5660,7 @@ SkinnedMeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
@@ -7186,7 +7299,7 @@ MonoBehaviour:
   isActive: 0
   player: {fileID: 3930378177929983290}
   musicEnv: {fileID: 7735387195061020308}
-  cam: {fileID: 7066989466901692877}
+  followcam: {fileID: 238842518983956229}
 --- !u!114 &18307215714320307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10780,6 +10893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeInAnimator: {fileID: 7735387195111775529}
+  load: 0
 --- !u!65 &573669165635273701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12685,7 +12799,7 @@ MonoBehaviour:
   mannequinDialogues:
   - Argh ...
   - "Tu ne te rappelles pas de ce qu'il s'est pass\xE9 c'est \xE7a ?"
-  - "Je n'ai pas suffisament de temps pour tout te l'expliquer mais les r\xE9ponses
+  - "Je n'ai pas suffisament de temps pour tout  t'expliquer mais les r\xE9ponses
     que tu attends sont dans cette pi\xE8ce"
   interactionName: mannequinStep1
   endzone: {fileID: 0}
@@ -30948,8 +31062,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7191482771179208149}
   - {fileID: 238842518983956218}
+  - {fileID: 7191482771179208149}
   - {fileID: 4449647194748153754}
   m_Father: {fileID: 2300756352872877103}
   m_RootOrder: -1
@@ -51969,7 +52083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7191482771179208144}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.33744, y: 0.328485, z: 6.014774}
+  m_LocalPosition: {x: 13.337437, y: 0.328485, z: 6.0147743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56221,6 +56335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4824920208732387831}
+  - {fileID: 897596716}
   m_Father: {fileID: 6928399104434459747}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -10.113177, y: 1.2915586, z: -0.6590291}
@@ -57863,7 +57978,7 @@ SkinnedMeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
@@ -59193,14 +59308,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.70980394}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fdadb45436703544a95c3785a829f809, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38bb10729da451445b2d3361222a58b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -59253,8 +59368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -82.00006, y: -40.051727}
+  m_AnchoredPosition: {x: -20.500015, y: 0}
+  m_SizeDelta: {x: -41.00003, y: -40.051727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &8268139898748269598
 MeshFilter:

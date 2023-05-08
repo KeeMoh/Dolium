@@ -71,7 +71,6 @@ public class PickableObject : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         trigger.enabled = false;
         coll.enabled = false;
-        Debug.Log(player.name);
         player.GetComponent<InteractionController>().DeleteInteraction(gameObject);
 
     }
