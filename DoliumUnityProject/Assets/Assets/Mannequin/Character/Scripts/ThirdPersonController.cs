@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -222,15 +223,23 @@ namespace StarterAssets
             }
 
             // clamp our rotations so our values are limited 360 degrees
-            if (GravityChanged)
+            if (SceneManager.GetActiveScene().name == "Scene2")
             {
                 TopClamp = 30.0f;
-                BottomClamp = -70.0f;
+                BottomClamp = -30.0f;
             }
             else
             {
-                TopClamp = 70.0f;
-                BottomClamp = -30.0f;
+                if (GravityChanged)
+                {
+                    TopClamp = 30.0f;
+                    BottomClamp = -70.0f;
+                }
+                else
+                {
+                    TopClamp = 70.0f;
+                    BottomClamp = -30.0f;
+                }
             }
 
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);

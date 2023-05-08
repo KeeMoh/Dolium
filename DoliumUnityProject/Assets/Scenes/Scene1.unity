@@ -14836,6 +14836,7 @@ MonoBehaviour:
   - Je dois y aller ! Je te laisse avancer un peu toute seule et on se retrouvera
     plus tard
   interactionName: mannequinStep1
+  endzone: {fileID: 0}
 --- !u!65 &1634504727838472191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17710,6 +17711,7 @@ MonoBehaviour:
   - De quoi je veux parler ? Je...
   - "Je pense que tu auras bien assez de temps pour le d\xE9couvrir"
   interactionName: mannequinStep1
+  endzone: {fileID: 0}
 --- !u!1 &2093313275129531880
 GameObject:
   m_ObjectHideFlags: 0
@@ -43543,6 +43545,7 @@ MonoBehaviour:
   - "Je n'ai pas suffisament de temps pour tout te l'expliquer mais les r\xE9ponses
     que tu attends sont dans cette pi\xE8ce"
   interactionName: mannequinStep1
+  endzone: {fileID: 0}
 --- !u!23 &5748282836842922266
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -65,7 +65,8 @@ public class SwitchDecor : MonoBehaviour
             {
                 light.intensity = 0.5f;
             }
-            lightToIntensify.intensity = 80f;
+            lightToIntensify.intensity = 100f;
+            lightToIntensify.range = 12f;
             manivelle.GetComponent<Outline>().enabled= true;
         }
     }
@@ -85,8 +86,16 @@ public class SwitchDecor : MonoBehaviour
                 dissolveAmount -= Time.deltaTime * 1f;
                 foreach (Renderer renderer in renderers)
                 {
-                        dissolveMaterial = renderer.material;
-                        dissolveMaterial.SetFloat("_Dissolve", dissolveAmount);
+                    if (renderer.materials.Length > 1)
+                    {
+                        foreach (Material material in renderer.materials)
+                        {
+                            material.SetFloat("_Dissolve", dissolveAmount);
+                            print(material.name);
+                        }
+                    }
+                    dissolveMaterial = renderer.material;
+                    dissolveMaterial.SetFloat("_Dissolve", dissolveAmount);
                 }
                 yield return null;
             }
@@ -113,12 +122,19 @@ public class SwitchDecor : MonoBehaviour
 
     IEnumerator Hide()
     {
-        print("Is not dissolving");
         while (dissolveAmount < 1f)
         {
             dissolveAmount += Time.deltaTime * 0.5f;
             foreach (Renderer renderer in renderers)
             {
+                if (renderer.materials.Length > 1)
+                {
+                    foreach(Material material in renderer.materials)
+                    {
+                        material.SetFloat("_Dissolve", dissolveAmount);
+                        print(material.name);                        
+                    }
+                }
                 dissolveMaterial = renderer.material;
                 dissolveMaterial.SetFloat("_Dissolve", dissolveAmount);
             }

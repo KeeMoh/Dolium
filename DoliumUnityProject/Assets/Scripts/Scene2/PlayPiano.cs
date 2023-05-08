@@ -1,6 +1,7 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class PlayPiano : MonoBehaviour
     [SerializeField] private GameObject pianoCamera;
     [SerializeField] private ThirdPersonController controller;
     [SerializeField] private GameObject animatorRef;
+    public AudioSource sourceAudio;
     private readonly StarterAssets.StarterAssetsInputs _input;
     private bool _isPlaying;
     // Start is called before the first frame update
@@ -26,9 +28,16 @@ public class PlayPiano : MonoBehaviour
     {
         if (GetComponent<Interaction>() && GetComponent<Interaction>().interactionState && !_isPlaying)
         {
-            animatorRef.GetComponent<Animator>().SetBool("end", true);
+            StartCoroutine(OpenDoor());
             //cameraPiano();
         }
+    }
+
+    IEnumerator OpenDoor()
+    {
+        sourceAudio.Play();
+        yield return new WaitForSeconds(4f);
+        animatorRef.GetComponent<Animator>().SetBool("end", true);
     }
 
     void cameraPiano()
