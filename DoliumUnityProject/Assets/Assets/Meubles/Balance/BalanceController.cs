@@ -135,21 +135,53 @@ public class BalanceController : MonoBehaviour
         }
         else if (element2.GetComponent<Interaction>().interactionState)
         {
-            if (RightHandHandle.grabObj != null)
-            {
-                element2.GetComponent<BalancePlacement>().pickableObject = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>();
-                element2Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
+            //if (RightHandHandle.grabObj != null)
+            //{
+            //    element2.GetComponent<BalancePlacement>().pickableObject = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>();
+            //    element2Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
 
+            //    RightHandHandle.grabObj.transform.SetParent(element2, false);
+            //    RightHandHandle.grabObj.transform.position = element2.GetChild(0).position;
+            //    //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
+            //    if (RightHandHandle.grabObj.name == "gucy1")
+            //    {
+            //        RightHandHandle.grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
+            //    }
+            //    RightHandHandle.grabObj = null;
+            //}
+            //element2.GetComponent<Interaction>().interactionState = false;
+
+            GameObject grabObj = RightHandHandle.grabObj;
+            if (element2.GetComponent<BalancePlacement>().pickableObject != null)
+            {
+                BalancePickableObjects placedObj = element2.GetComponent<BalancePlacement>().pickableObject;
+                element2.GetComponent<BalancePlacement>().pickableObject = grabObj.GetComponent<BalancePickableObjects>();
+                element2Weight = grabObj.GetComponent<BalancePickableObjects>().weight;
+                grabObj.transform.SetParent(element2, false);
+                grabObj.transform.position = element2.GetChild(0).position;
+                if (grabObj.name == "gucy1")
+                {
+                    grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
+                }
+                //grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
+                placedObj.PickUp();
+
+
+            }
+            else
+            {
+                element2.GetComponent<BalancePlacement>().pickableObject = grabObj.GetComponent<BalancePickableObjects>();
+                element2Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
                 RightHandHandle.grabObj.transform.SetParent(element2, false);
                 RightHandHandle.grabObj.transform.position = element2.GetChild(0).position;
-                //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 if (RightHandHandle.grabObj.name == "gucy1")
                 {
                     RightHandHandle.grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
                 }
+                //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 RightHandHandle.grabObj = null;
             }
-            element2.GetComponent<Interaction>().interactionState = false;
+
         }
 
     }

@@ -7,8 +7,11 @@ TagManager:
   - CinemachineTarget
   - Mannequin
   - ObjectZone
-  - ActionEnv
   - MannequinStep1
+  - ActionEnv
+  - Dishes
+  - Key
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - 
   - Character
   - Ground
-  - GrableObj
+  - 
   - 
   - 
   - 

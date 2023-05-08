@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:DoliumUnityProject/Assets/Scenes/Playground_CM.unity.meta
+guid: fb6e732dd2a26324db9df3be9fc5563a
+========
+guid: 35ef1a9d15b8c114fa7b177d414daf67
+>>>>>>>> 03c4a87 (create prefab for ui):DoliumUnityProject/Assets/Scenes/Playground Eliott.unity.meta
+=======
+<<<<<<<< HEAD:DoliumUnityProject/Assets/Animations.meta
+guid: c08caaff6344763409a1b88b21659501
+folderAsset: yes
+========
+guid: 35ef1a9d15b8c114fa7b177d414daf67
+>>>>>>>> 03c4a8746433b13f0e70abf4b8c204250069e69c:DoliumUnityProject/Assets/Scenes/Playground Eliott.unity.meta
+>>>>>>> 03c4a8746433b13f0e70abf4b8c204250069e69c
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
