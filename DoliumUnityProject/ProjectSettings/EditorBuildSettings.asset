@@ -5,12 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Playground_EG.unity
-    guid: 1e5019dd1162f4d499a6d9cf13601638
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1a09dc938cb49234cba61bcfe3405584
+  - enabled: 1
+    path: Assets/Scenes/FirstTransition.unity
+    guid: 7190a010e25632d41888918083f026c8
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 229b8848d22674e48b4e67d56320a205
+  - enabled: 1
+    path: Assets/Scenes/Transition.unity
+    guid: e0b43660a5525e84da4b51f3383baf69
+  - enabled: 1
+    path: Assets/Scenes/Generique_final.unity
+    guid: 47ef6038918b0e348bd4aa21e263a5c1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
