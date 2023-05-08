@@ -12,6 +12,7 @@ public class DialogueControler : MonoBehaviour
     [SerializeField] private string mannequinName;
     [SerializeField] private string[] mannequinDialogues;
     [SerializeField] private string interactionName;
+    [SerializeField] GameObject endzone;
 
     private bool dialoguesDisplayed;
 
@@ -97,6 +98,7 @@ public class DialogueControler : MonoBehaviour
             } else if (interactionName == "mannequinStep2")
             {
                 other.GetComponent<ThirdPersonController>().GravityIsChanging = true;
+                endzone.SetActive(true);
             }else
             {
                 if (!mannequinActions.loading)

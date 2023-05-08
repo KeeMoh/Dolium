@@ -7,7 +7,10 @@ public class openEndDoor : MonoBehaviour
     public Animator openEndDoorAnimator;
     private void OnTriggerEnter(Collider other)
     {
-        OpenDoor();
+        if (other.CompareTag("Player"))
+        {
+            OpenDoor();
+        }
     }
 
     public void OpenDoor()
