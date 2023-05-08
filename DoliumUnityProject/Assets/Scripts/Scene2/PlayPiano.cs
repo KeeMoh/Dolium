@@ -12,6 +12,7 @@ public class PlayPiano : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject pianoCamera;
     [SerializeField] private ThirdPersonController controller;
+    [SerializeField] private GameObject animatorRef;
     private readonly StarterAssets.StarterAssetsInputs _input;
     private bool _isPlaying;
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class PlayPiano : MonoBehaviour
     {
         if (GetComponent<Interaction>() && GetComponent<Interaction>().interactionState && !_isPlaying)
         {
-            cameraPiano();
+            animatorRef.GetComponent<Animator>().SetBool("end", true);
+            //cameraPiano();
         }
     }
 

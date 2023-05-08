@@ -13,6 +13,7 @@ public class RepareMusicBox : MonoBehaviour
     [SerializeField] private Camera musicBoxCamera;
     [SerializeField] private ThirdPersonController controller;
     [SerializeField] private GameObject piano;
+    public AudioSource sourceAudio;
     private GameObject _interactionMenu;
     private void Start()
     {
@@ -36,6 +37,7 @@ public class RepareMusicBox : MonoBehaviour
                 GetComponent<Outline>().enabled = false;
                 Destroy(GetComponent<Interaction>());
                 StartCoroutine(ActiveEnvInteractionCoroutine());
+                
             }
             else
             {
@@ -47,8 +49,11 @@ public class RepareMusicBox : MonoBehaviour
     IEnumerator ActiveEnvInteractionCoroutine()
     {
         animatorRef.GetComponent<Animator>().SetTrigger("Repare");
-        yield return new WaitForSeconds(8);
-        musicBoxCamera.enabled = false;
+        
+        yield return new WaitForSeconds(3.5f);
+        sourceAudio.Play();
+        yield return new WaitForSeconds(4.5f);
+        musicBoxCamera.enabled = false; 
         //controller.transform.position = position;
         controller.enabled = true;
         mainCamera.enabled = true;
@@ -56,7 +61,7 @@ public class RepareMusicBox : MonoBehaviour
         piano.AddComponent<Outline>();
         piano.GetComponent<Outline>().enabled = false;
         piano.GetComponent<Interaction>().interactionName= "Use Piano";
-        GetComponent<ActivateColliders>().Desactivation();
+        //GetComponent<ActivateColliders>().Desactivation();
         _interactionMenu.SetActive(true);
         controller.gameObject.GetComponent<InteractionController>().canInteract = true;
         //GameObject.Find("InteractionMenu").SetActive(true);

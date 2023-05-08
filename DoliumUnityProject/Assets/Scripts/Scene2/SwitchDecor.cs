@@ -10,6 +10,7 @@ public class SwitchDecor : MonoBehaviour
     [SerializeField] private List<GameObject> models;
     [SerializeField] private List<Light> lightToTurnOff;
     [SerializeField] private Light lightToIntensify;
+    [SerializeField] private GameObject manivelle;
     //[SerializeField] private List<GameObject> colliders;
     //public GameObject obj;
     /*    public Light light;*/
@@ -65,6 +66,7 @@ public class SwitchDecor : MonoBehaviour
                 light.intensity = 0.5f;
             }
             lightToIntensify.intensity = 80f;
+            manivelle.GetComponent<Outline>().enabled= true;
         }
     }
     IEnumerator Show()
