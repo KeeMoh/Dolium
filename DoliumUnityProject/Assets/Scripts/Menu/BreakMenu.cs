@@ -17,7 +17,7 @@ public class BreakMenu : MonoBehaviour
     public Collider player;
     public AudioSource musicEnv;
     private bool onpause;
-    public CinemachineBrain cam;
+    public GameObject followcam;
 
     private void Start()
     {
@@ -28,7 +28,6 @@ public class BreakMenu : MonoBehaviour
 
     private void Update()
     {
-
         if (isActive)
         {
             if (!onpause)
@@ -40,7 +39,7 @@ public class BreakMenu : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Confined;
                 Time.timeScale = 0;
                 musicEnv.Pause();
-                cam.enabled = false;
+                followcam.SetActive(false);
             }
         }
         else
@@ -57,7 +56,7 @@ public class BreakMenu : MonoBehaviour
                 Time.timeScale = 1;
                 onpause = false;
                 musicEnv.Play();
-                cam.enabled = true;
+                followcam.SetActive(true);
             }
         }
 

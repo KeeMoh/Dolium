@@ -94,9 +94,7 @@ public class BalanceController : MonoBehaviour
             return;
         }
         if (element1.GetComponent<Interaction>().interactionState)
-        {
-            Debug.Log("Interaction element 1");
-            
+        {            
             GameObject grabObj = RightHandHandle.grabObj;
             if (element1.GetComponent<BalancePlacement>().pickableObject != null)
             {
@@ -105,10 +103,6 @@ public class BalanceController : MonoBehaviour
                 element1Weight = grabObj.GetComponent<BalancePickableObjects>().weight;
                 grabObj.transform.SetParent(element1, false);
                 grabObj.transform.position = element1.GetChild(0).position;
-                if (grabObj.name == "gucy1")
-                {
-                    grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
-                }
                 //grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 placedObj.PickUp();
 
@@ -120,9 +114,9 @@ public class BalanceController : MonoBehaviour
                 element1Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
                 RightHandHandle.grabObj.transform.SetParent(element1, false);
                 RightHandHandle.grabObj.transform.position = element1.GetChild(0).position;
-                if (RightHandHandle.grabObj.name == "gucy1")
+                if (RightHandHandle.grabObj.name == "pickableBowl")
                 {
-                    RightHandHandle.grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
+                    grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 }
                 //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 RightHandHandle.grabObj = null;
@@ -159,9 +153,9 @@ public class BalanceController : MonoBehaviour
                 element2Weight = grabObj.GetComponent<BalancePickableObjects>().weight;
                 grabObj.transform.SetParent(element2, false);
                 grabObj.transform.position = element2.GetChild(0).position;
-                if (grabObj.name == "gucy1")
+                if (grabObj.name == "pickableBowl")
                 {
-                    grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
+                    grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 }
                 //grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 placedObj.PickUp();
@@ -174,9 +168,9 @@ public class BalanceController : MonoBehaviour
                 element2Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
                 RightHandHandle.grabObj.transform.SetParent(element2, false);
                 RightHandHandle.grabObj.transform.position = element2.GetChild(0).position;
-                if (RightHandHandle.grabObj.name == "gucy1")
+                if (RightHandHandle.grabObj.name == "pickableBowl")
                 {
-                    RightHandHandle.grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
+                    grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 }
                 //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 RightHandHandle.grabObj = null;

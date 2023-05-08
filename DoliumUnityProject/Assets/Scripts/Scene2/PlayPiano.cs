@@ -29,6 +29,7 @@ public class PlayPiano : MonoBehaviour
         if (GetComponent<Interaction>() && GetComponent<Interaction>().interactionState && !_isPlaying)
         {
             StartCoroutine(OpenDoor());
+            _isPlaying = true;
             //cameraPiano();
         }
     }
@@ -47,7 +48,6 @@ public class PlayPiano : MonoBehaviour
         pianoCamera.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        //print("blablabla");
         /*RightHandHandle.grabObj.SetActive(false);
         RightHandHandle.grabObj = null;
         _interactionMenu.SetActive(false);
