@@ -22,7 +22,15 @@ public class ChangeScene : MonoBehaviour
             if (!load)
             {
                 load = true;
-                SceneManager.LoadScene(sceneName);
+                if (SceneManager.GetActiveScene().name == "Scene3")
+                {
+                    sceneName = "LastTransition";
+                    SceneManager.LoadScene(sceneName);
+                } else
+                {
+                    SceneManager.LoadScene(sceneName);
+                }
+                
             }
         }
     }
