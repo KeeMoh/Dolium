@@ -117,6 +117,9 @@ public class BalanceController : MonoBehaviour
                 if (RightHandHandle.grabObj.name == "pickableBowl")
                 {
                     grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                } else if (RightHandHandle.grabObj.name == "Vase")
+                {
+                    grabObj.transform.localScale = new Vector3(4f, 4f, 4f);
                 }
                 //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 RightHandHandle.grabObj = null;
@@ -129,21 +132,6 @@ public class BalanceController : MonoBehaviour
         }
         else if (element2.GetComponent<Interaction>().interactionState)
         {
-            //if (RightHandHandle.grabObj != null)
-            //{
-            //    element2.GetComponent<BalancePlacement>().pickableObject = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>();
-            //    element2Weight = RightHandHandle.grabObj.GetComponent<BalancePickableObjects>().weight;
-
-            //    RightHandHandle.grabObj.transform.SetParent(element2, false);
-            //    RightHandHandle.grabObj.transform.position = element2.GetChild(0).position;
-            //    //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
-            //    if (RightHandHandle.grabObj.name == "gucy1")
-            //    {
-            //        RightHandHandle.grabObj.transform.eulerAngles = new Vector3(-90, 0, 0);
-            //    }
-            //    RightHandHandle.grabObj = null;
-            //}
-            //element2.GetComponent<Interaction>().interactionState = false;
 
             GameObject grabObj = RightHandHandle.grabObj;
             if (element2.GetComponent<BalancePlacement>().pickableObject != null)
@@ -156,6 +144,10 @@ public class BalanceController : MonoBehaviour
                 if (grabObj.name == "pickableBowl")
                 {
                     grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                }
+                else if (RightHandHandle.grabObj.name == "Vase")
+                {
+                    grabObj.transform.localScale = new Vector3(4f, 4f, 4f);
                 }
                 //grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 placedObj.PickUp();
@@ -172,10 +164,14 @@ public class BalanceController : MonoBehaviour
                 {
                     grabObj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 }
+                else if (RightHandHandle.grabObj.name == "Vase")
+                {
+                    grabObj.transform.localScale = new Vector3(4f, 4f, 4f);
+                }
                 //RightHandHandle.grabObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 RightHandHandle.grabObj = null;
             }
-
+            element2.GetComponent<Interaction>().interactionState = false;
         }
 
     }
