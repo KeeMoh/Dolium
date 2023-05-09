@@ -18290,8 +18290,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0109582, y: 3.0319855, z: 5.6813135}
-  m_Center: {x: -1.4684246, y: -1.4840072, z: -2.8405662}
+  m_Size: {x: 3.0109582, y: 3.0319855, z: 7.9140635}
+  m_Center: {x: -1.4684246, y: -1.4840072, z: -3.9569411}
 --- !u!33 &573669165635273702
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -52373,7 +52373,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -82.00006, y: -40.051727}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &8269479317313155636
 MeshFilter:

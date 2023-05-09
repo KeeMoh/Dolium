@@ -10526,7 +10526,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -82.00006, y: -40.051727}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444826904
 MonoBehaviour:
@@ -50985,21 +50985,6 @@ Transform:
   m_Father: {fileID: 1860640166705880004}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
---- !u!4 &250077089389822508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590995631195756694}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: -0.15999988, y: 0.09106732, z: 0.008000009}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1860640167629300217}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &250077089491608472
 Transform:
   m_ObjectHideFlags: 0
@@ -54250,24 +54235,6 @@ GameObject:
   - component: {fileID: 1383554054381335284}
   m_Layer: 0
   m_Name: SM_Candle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &590995631195756694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 250077089389822508}
-  - component: {fileID: 3807697126973263241}
-  - component: {fileID: 1383554054391904579}
-  m_Layer: 0
-  m_Name: SM_Decorative38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58867,48 +58834,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &1383554054391904579
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590995631195756694}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 3967085880748308678, guid: d93d45c01deeaeb4596f78ad217f96bc, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &1383554054671034947
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60948,7 +60873,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 250077089389822508}
   - {fileID: 356570198005833365}
   m_Father: {fileID: 7520239581660512062}
   m_RootOrder: -1
@@ -75467,14 +75391,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590995631181189921}
   m_Mesh: {fileID: -7821194605130214346, guid: 76631718d1e89be46b33073ce29f9c68, type: 3}
---- !u!33 &3807697126973263241
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590995631195756694}
-  m_Mesh: {fileID: 6877771121825419614, guid: d93d45c01deeaeb4596f78ad217f96bc, type: 3}
 --- !u!33 &3807697127142026301
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87311,7 +87227,7 @@ PrefabInstance:
     - target: {fileID: 8057226667840304196, guid: e4fad683966da14438d94c75ccd2fd63,
         type: 3}
       propertyPath: mannequinDialogues.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8057226667840304196, guid: e4fad683966da14438d94c75ccd2fd63,
         type: 3}
@@ -87340,14 +87256,12 @@ PrefabInstance:
         type: 3}
       propertyPath: mannequinDialogues.Array.data[4]
       value: "On se retrouvera peut-\xEAtre un jour mais en attendant je veux que
-        tu continues ton chemin et que tu profites du temps qu\u2019il t'est offert
-        \u2026"
+        tu continues ton chemin et que tu profites du temps qu\u2019il t'est offert..."
       objectReference: {fileID: 0}
     - target: {fileID: 8057226667840304196, guid: e4fad683966da14438d94c75ccd2fd63,
         type: 3}
       propertyPath: mannequinDialogues.Array.data[5]
-      value: "Tout ce que nous souhaitons c'est votre bonheur alors s\xE9chez vos
-        larmes "
+      value: Souviens toi que tu ne seras jamais seule... Je t'aime
       objectReference: {fileID: 0}
     - target: {fileID: 8057226667840304198, guid: e4fad683966da14438d94c75ccd2fd63,
         type: 3}
